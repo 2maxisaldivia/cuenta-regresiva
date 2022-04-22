@@ -26,14 +26,11 @@ if (contador === 0){
     // Le asigno un valor distinto de 0 al contador
     botonEmpezar.addEventListener("click", ()=>{
 
-        
-
         inputContador.style.visibility = "hidden"
         botonEmpezar.style.visibility = "hidden"
         contador = inputContador.value
         console.log(contador)
         
-        let contadorEnPausa = false;
 
         if (contador <= 0){
             tituloAdvertencia.style.visibility = "visible"
@@ -41,10 +38,13 @@ if (contador === 0){
             botonEmpezar.style.visibility = "visible"
             divFinal.style.visibility = "hidden"
             cuentaRegresiva.style.visibility = "hidden"
-
             clearInterval(cronometro)
             
         }
+
+        // Creo una variable para manejar el estado del cronometro
+        // (pausa o contando)
+        let contadorEnPausa = false;
 
         // Le asigno un evento al boton para que cambie el valor de 
         // contador en pausa, para reanudar y pausar la cuenta.
@@ -79,8 +79,8 @@ if (contador === 0){
                     
                     
                     if(contador === 0){
-                        bordeGiratorio.style.visibility = "hidden";
                         clearInterval(cronometro)
+                        bordeGiratorio.style.visibility = "hidden";
                         divFinal.innerHTML = "La cuenta regresiva ha finalizado, ingrese un nuevo número."
                         inputContador.style.visibility = "visible"
                         botonEmpezar.style.visibility = "visible"
@@ -90,7 +90,6 @@ if (contador === 0){
                     }
 
                     cuentaRegresiva.innerHTML = contador;
-                
                     console.log(contador)
                     contador -= 1;
                 }
@@ -99,15 +98,6 @@ if (contador === 0){
     
     }) 
 }
-
-
-
-
-
-
-
-
-
 
 
 
